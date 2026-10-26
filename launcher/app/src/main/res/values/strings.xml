@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- [Update: 26/10/2026 16:51] -->
-<!-- Việt hóa toàn bộ giao diện và đổi lời chào thành Chào Sếp TCM -->
+<!-- [Update: 26/10/2026 16:55] -->
+<!-- Cập nhật câu chào gia đình: Chào Sếp TCM, Sếp SEN, Sếp LÊ CÁ -->
 <resources>
     <string name="app_name">Home</string>
     <string name="inputs">Cổng vào</string>
@@ -12,10 +12,10 @@
     <string name="not_connected">Không có thiết bị</string>
     <string name="live_tv">Truyền hình</string>
     <string name="no_inputs">Không tìm thấy cổng</string>
-    <string name="good_morning">Chào Sếp TCM</string>
-    <string name="good_afternoon">Chào Sếp TCM</string>
-    <string name="good_evening">Chào Sếp TCM</string>
-    <string name="good_night">Chào Sếp TCM</string>
+    <string name="good_morning">Chào Sếp TCM, Sếp SEN, Sếp LÊ CÁ</string>
+    <string name="good_afternoon">Chào Sếp TCM, Sếp SEN, Sếp LÊ CÁ</string>
+    <string name="good_evening">Chào Sếp TCM, Sếp SEN, Sếp LÊ CÁ</string>
+    <string name="good_night">Chào Sếp TCM, Sếp SEN, Sếp LÊ CÁ</string>
     <string name="ethernet">Mạng dây</string>
     <string name="offline">Ngoại tuyến</string>
     <string name="not_available">Không hỗ trợ trên TV này</string>
