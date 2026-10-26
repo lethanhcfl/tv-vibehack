@@ -1,3 +1,7 @@
+/*
+ * [Update: 26/10/2026 19:35]
+ * Ho tro quét app tieu chuan LAUNCHER (Phim 4K sideload) va nap banner tuy bien
+ */
 package com.gathin.tvhome;
 
 import android.content.ActivityNotFoundException;
@@ -88,19 +92,44 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.Holder> {
 
     void reload() {
         PackageManager pm = ctx.getPackageManager();
+        List<Entry> fresh = new ArrayList<>();
+        Set<String> seen = new HashSet<>();
+
         Intent probe = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER);
         List<ResolveInfo> found = pm.queryIntentActivities(probe, 0);
-        List<Entry> fresh = new ArrayList<>();
         for (ResolveInfo ri : found) {
             if (ri.activityInfo == null) continue;
             String pkg = ri.activityInfo.packageName;
             if (pkg.equals(ctx.getPackageName()) || hidden.contains(pkg)) continue;
+            seen.add(pkg);
             Drawable banner = ri.activityInfo.loadBanner(pm);
             if (banner == null) banner = ri.activityInfo.applicationInfo.loadBanner(pm);
+            if (banner == null && "com.xyz.phim4k".equals(pkg)) {
+                banner = ctx.getDrawable(R.drawable.banner_phim4k);
+            }
             Drawable icon = ri.loadIcon(pm);
             String label = String.valueOf(ri.loadLabel(pm));
             fresh.add(new Entry(label, new ComponentName(pkg, ri.activityInfo.name), banner, icon));
         }
+
+        // Standard LAUNCHER activities for sideloaded apps (e.g. Phim 4K) without Leanback intent
+        Intent probeStandard = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> standardFound = pm.queryIntentActivities(probeStandard, 0);
+        for (ResolveInfo ri : standardFound) {
+            if (ri.activityInfo == null) continue;
+            String pkg = ri.activityInfo.packageName;
+            if (pkg.equals(ctx.getPackageName()) || hidden.contains(pkg) || seen.contains(pkg)) continue;
+            seen.add(pkg);
+            Drawable banner = ri.activityInfo.loadBanner(pm);
+            if (banner == null) banner = ri.activityInfo.applicationInfo.loadBanner(pm);
+            if (banner == null && "com.xyz.phim4k".equals(pkg)) {
+                banner = ctx.getDrawable(R.drawable.banner_phim4k);
+            }
+            Drawable icon = ri.loadIcon(pm);
+            String label = String.valueOf(ri.loadLabel(pm));
+            fresh.add(new Entry(label, new ComponentName(pkg, ri.activityInfo.name), banner, icon));
+        }
+
         Collections.sort(fresh, (a, b) -> {
             int fa = favourites.indexOf(a.pkg), fb = favourites.indexOf(b.pkg);
             if (fa >= 0 || fb >= 0) {
@@ -157,10 +186,14 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.Holder> {
     }
 
     private void launch(Entry e) {
-        Intent i = new Intent(Intent.ACTION_MAIN)
-                .addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER)
-                .setComponent(e.component)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        Intent i = ctx.getPackageManager().getLeanbackLaunchIntentForPackage(e.pkg);
+        if (i == null) {
+            i = ctx.getPackageManager().getLaunchIntentForPackage(e.pkg);
+        }
+        if (i == null) {
+            i = new Intent(Intent.ACTION_MAIN).setComponent(e.component);
+        }
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
         try {
             ctx.startActivity(i);
         } catch (Exception ex) {
