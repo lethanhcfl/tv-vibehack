@@ -1,6 +1,6 @@
-# [Update: 26/10/2026 21:10]
+# [Update: 26/10/2026 21:30]
 # Script Python tu dong patch smali cho Phim 4K Android TV
-# Bo qua hop thoai server dialog (phat 1 cham) va chan update popup
+# Bo qua hop thoai server dialog (phat 1 cham), chan update popup va khoa thong bao Donator
 
 import os
 import re
@@ -116,6 +116,27 @@ def patch_video_details_fragment(src_dir):
         print("[*] VideoDetailsFragment co the da duoc patch hoac khong khop pattern")
         return True
 
+def patch_notii_manager(src_dir):
+    path = os.path.join(src_dir, "smali", "com", "files", "codes", "utils", "NotiiManager.smali")
+    if not os.path.exists(path):
+        print(f"[!] Khong tim thay {path}")
+        return False
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    pattern = r"(\.method public static maybeShow\(Landroidx/fragment/app/l;\)V[\s\S]*?\.locals \d+)([\s\S]*?)(\.end method)"
+    replacement = r"\1\n\n    return-void\n\3"
+
+    new_content, count = re.subn(pattern, replacement, content)
+    if count > 0:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        print("[+] Da patch NotiiManager (khoa vinh vien popup thong bao / donator)")
+        return True
+    else:
+        print("[*] NotiiManager co the da duoc patch hoac khong khop pattern")
+        return True
+
 def main():
     if len(sys.argv) < 2:
         print(f"Su dung: {sys.argv[0]} <duong_dan_thu_muc_decompile>")
@@ -125,6 +146,7 @@ def main():
     patch_apktool_yml(src_dir)
     patch_hero_style_fragment(src_dir)
     patch_video_details_fragment(src_dir)
+    patch_notii_manager(src_dir)
     print("[✓] Hoan tat toan bo patch smali.")
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 21:15]
+# [Update: 26/10/2026 21:42]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -58,6 +58,17 @@
   - Sau này khi tác giả ra bản mới, Sếp chỉ cần chạy `./tools/patch-phim4k.sh`, tool sẽ tự động tải APK mới, dịch ngược, tự động áp bản vá smali, đóng gói, ký số và nạp thẳng lên TV chỉ trong 30 giây.
 - **Xuất bản cài đặt ra Desktop:**
   - File cài mod hoàn chỉnh đã được ký số sẵn sàng tại: `/Users/tcm/Desktop/20261026 Phim4K Android TV v2.7.3-mod.apk`.
+
+### Mốc 8: Khóa vĩnh viễn popup thông báo kêu gọi Donator / CDN (21:42 ngày 26/10/2026)
+- **Phân tích cơ chế Thông báo Donator:**
+  - Nhóm phát triển Phim 4K kích hoạt thông báo modal từ xa thông qua `NotiiManager` tải file `tbao.json`.
+  - Mục đích: Kêu gọi người dùng quyên góp để duy trì cụm máy chủ CDN VIP (Server Donator).
+- **Vá triệt để mã nguồn Smali:**
+  - Can thiệp hàm `NotiiManager.maybeShow()`, ép trả về `return-void` ngay lập tức.
+  - Vô hiệu hóa toàn bộ việc tải và hiển thị popup thông báo này khi khởi động app hoặc chuyển màn hình.
+- **Tích hợp vào bộ tự động hóa & nạp lên TV:**
+  - Cập nhật hàm `patch_notii_manager()` vào `tools/patch-phim4k.py`.
+  - Đã nạp bản mod hoàn chỉnh lên TV Xiaomi A75 Pro: Mở phim mượt mà, vào thẳng giao diện kho phim, không còn bất kỳ popup thông báo nào che khuất màn hình.
 
 ---
 
