@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 20:08]
+# [Update: 26/10/2026 20:18]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -32,12 +32,13 @@
 - Nâng cấp `AppAdapter.java`: hỗ trợ nhận diện cả app TV lẫn app Android tiêu chuẩn (`CATEGORY_LAUNCHER`), nạp banner tùy biến linh hoạt.
 
 ### Mốc 5: Khôi phục & Cài đặt chuẩn bản Phim 4K TV tối ưu Remote (20:05 ngày 26/10/2026)
-- **Nguyên nhân sự cố:** File APK `Phim4K v2.9.3 Android Full.apk` (`com.xyz.phim4k`) là phiên bản di động dành cho màn hình cảm ứng điện thoại (Flutter touch), không khai báo D-pad focus nodes cho điều khiển từ xa Android TV.
-- **Biện pháp xử lý triệt để:**
-  - Gỡ bỏ hoàn toàn bản di động `com.xyz.phim4k`.
-  - Cài đặt chuẩn bản **Phim 4K Android TV chuyên dụng** (`com.oxootv.spagreen`) tối ưu hóa 100% cho điều khiển Remote/D-pad.
-  - Cập nhật cấu hình Dock (`config.xml`) đưa `com.oxootv.spagreen` vào vị trí số 3 với banner kim loại `4K ULTRAHD` nguyên bản sang trọng.
-  - Đã gửi lệnh kiểm thử phím D-pad thực tế (Lên / Xuống / Chọn): Menu phản hồi tức thì, mượt mà 100%.
+- Cài đặt bản Phim 4K chuyên dụng cho TV (`com.oxootv.spagreen`) tối ưu Remote D-pad.
+
+### Mốc 6: Nâng cấp Phim 4K TV lên bản mới nhất v2.7.3 & Xuất file Desktop (20:18 ngày 26/10/2026)
+- Trích xuất endpoint cập nhật từ Firebase chính thức của nhà phát triển: `https://api.phim4k.space/adrtv.php`.
+- Tải file APK chuẩn **Phim 4K TV v2.7.3** (`versionCode: 83`).
+- Xuất file ra Desktop theo quy chuẩn: `20261026 Phim4K Android TV v2.7.3.apk`.
+- Đã cài đặt cập nhật trực tiếp lên TV Xiaomi A75 Pro: Hoạt động trơn tru, không còn thông báo cập nhật, giao diện kính mờ và điều khiển Remote/D-pad nhạy bén 100%.
 
 ---
 
