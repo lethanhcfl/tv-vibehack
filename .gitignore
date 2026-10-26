@@ -1,11 +1,15 @@
-# [Update: 26/10/2026 16:23]
-# Bỏ qua các bộ công cụ nhị phân lớn và bản sao lưu cục bộ thiết bị
+# [Update: 26/10/2026 21:08]
+# Bo qua cac bo cong cu nhi phan, file APK mod va thu muc decompile
 tools/venv/
 tools/adbkey/
 tools/__pycache__/
 tools/platform-tools/
 tools/jdk17/
 tools/android-sdk/
+tools/apktool.jar
+tools/*.apk
+tools/*.idsig
+tools/phim4k_*
 launcher/.gradle/
 launcher/build/
 launcher/app/build/

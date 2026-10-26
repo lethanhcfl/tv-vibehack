@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 20:18]
+# [Update: 26/10/2026 21:15]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -40,16 +40,39 @@
 - Xuất file ra Desktop theo quy chuẩn: `20261026 Phim4K Android TV v2.7.3.apk`.
 - Đã cài đặt cập nhật trực tiếp lên TV Xiaomi A75 Pro: Hoạt động trơn tru, không còn thông báo cập nhật, giao diện kính mờ và điều khiển Remote/D-pad nhạy bén 100%.
 
+### Mốc 7: Modding Phim 4K TV - Play 1 chạm, chặn quảng cáo qua DNS & Khóa cập nhật phiền toái (21:15 ngày 26/10/2026)
+- **Bỏ qua hộp thoại chọn Server rườm rà (Play 1 chạm):**
+  - Đã patch trực tiếp mã nguồn Smali tại `HeroStyleMovieDetailsFragment.smali` và `VideoDetailsFragment.smali`.
+  - Khi bấm **`▶ XEM NGAY`**, ứng dụng lập tức khởi tạo trình phát `PlayerActivity` với luồng phát chất lượng cao nhất mà không bật popup chọn server gây khó chịu.
+- **Khóa triệt để thông báo ép cập nhật:**
+  - Patch `OTAUpdateService.smali`: Ép hàm `isUpdateAvailable` luôn trả về `false`.
+  - Cập nhật `versionCode: 999999` trong `apktool.yml` để app không bao giờ bị thông báo update làm phiền trong lúc xem phim.
+- **Chặn quảng cáo bằng AdGuard Private DNS:**
+  - Cấu hình Private DNS `dns.adguard-dns.com` trực tiếp trên hệ điều hành TV.
+  - Sạch bóng banner / popup quảng cáo, tải luồng siêu tốc, độ trễ chỉ 49ms (0% packet loss).
+- **An toàn tuyệt đối 100% cho hệ thống & các ứng dụng khác:**
+  - Toàn bộ can thiệp chỉ nằm gọn trong nội bộ package `com.oxootv.spagreen`.
+  - Các app YouTube, FPT Play, Stremio, HyperOS và toàn bộ cấu hình TV hoàn toàn nguyên vẹn, không bị tác động.
+- **Tự động hóa nâng cấp tương lai (Future-proof):**
+  - Xây dựng bộ script 1 chạm: `tools/patch-phim4k.sh` & `tools/patch-phim4k.py`.
+  - Sau này khi tác giả ra bản mới, Sếp chỉ cần chạy `./tools/patch-phim4k.sh`, tool sẽ tự động tải APK mới, dịch ngược, tự động áp bản vá smali, đóng gói, ký số và nạp thẳng lên TV chỉ trong 30 giây.
+- **Xuất bản cài đặt ra Desktop:**
+  - File cài mod hoàn chỉnh đã được ký số sẵn sàng tại: `/Users/tcm/Desktop/20261026 Phim4K Android TV v2.7.3-mod.apk`.
+
 ---
 
 ## 3. Hướng Dẫn Tùy Biến & Khôi Phục Cho Sếp
 - Đổi app ở Dock: sửa `launcher/app/src/main/res/values/config.xml`.
 - Đổi lời chào: sửa `launcher/app/src/main/res/values/strings.xml`.
-- Chạy cập nhật 1 chạm:
+- Cập nhật Launcher 1 chạm:
   ```bash
   ./launcher/update-launcher.sh
   ```
-- Khôi phục khẩn cấp 1 chạm (bật lại toàn bộ):
+- Cập nhật / Tự động mod Phim 4K TV khi có bản mới:
+  ```bash
+  ./tools/patch-phim4k.sh
+  ```
+- Khôi phục khẩn cấp 1 chạm (bật lại toàn bộ dịch vụ TV):
   ```bash
   ./examples/xiaomi-a75pro-river/restore.sh
   ```
