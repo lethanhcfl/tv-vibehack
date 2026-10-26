@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 16:59]
+# [Update: 26/10/2026 19:06]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -13,20 +13,19 @@
 ## 2. Các Mốc Tối Ưu & Tùy Biến Đã Hoàn Thành
 
 ### Mốc 1: Tối ưu hóa hệ thống & Dọn dẹp bloatware
-- Vô hiệu hóa an toàn 15 dịch vụ telemetry, quảng cáo PatchWall và cập nhật tự động OTA của Xiaomi.
+- Vô hiệu hóa an toàn các dịch vụ telemetry, quảng cáo PatchWall và cập nhật tự động OTA của Xiaomi.
 - Vô hiệu hóa watchdog `com.google.android.tungsten.setupwraith` để dập tắt triệt để vòng lặp cứu hộ gây nghẽn CPU.
 - Giữ nguyên các tính năng: Google Assistant remote, Chromecast built-in, Mi Cast và Trình quản lý TV (`tvmanager`).
 
-### Mốc 2: Cài đặt Launcher chuẩn Apple TV
-- Đã đưa launcher Apple TV làm màn hình chính duy nhất.
-- 4 ứng dụng yêu thích ghim tại thanh Dock: **YouTube**, **FPT Play**, **Phim 4K**, **Stremio**.
+### Mốc 2: Cài đặt Launcher chuẩn Apple TV & Cá nhân hóa
+- Màn hình chính duy nhất: Launcher Apple TV với thanh Dock 4 app yêu thích (**YouTube**, **FPT Play**, **Phim 4K**, **Stremio**).
+- Lời chào gia đình: **`CHÀO SẾP TCM, SẾP SEN, SẾP LÊ CÁ`**.
+- 3 nút chức năng tròn kính mờ (*Cổng vào*, *Wi-Fi*, *Cài đặt*) căn giữa tuyệt đối 100%.
 
-### Mốc 3: Cá nhân hóa giao diện độc quyền cho gia đình Sếp
-- **Lời chào gia đình:** Góc trên bên trái hiển thị đầy đủ: **`CHÀO SẾP TCM, SẾP SEN, SẾP LÊ CÁ`**.
-- **Căn giữa chuẩn xác 3 nút icon tròn (Apple Control Center):**
-  - Chuyển đổi từ `TextView` sang `ImageView` với `scaleType="center"`.
-  - Khắc phục triệt để hiện tượng icon bị lệch mép do cơ chế canh lề text của TextView.
-  - Các icon bên trong 3 nút tròn (*Cổng vào*, *Wi-Fi*, *Cài đặt*) giờ đây đã được căn giữa tuyệt đối 100% theo cả trục ngang và trục dọc.
+### Mốc 3: Dọn dẹp bổ sung theo chỉ đạo của Sếp (19:05 ngày 26/10/2026)
+- **Vô hiệu hóa Amazon Prime Video:** `com.amazon.amazonvideo.livingroom` (loại bỏ app xem phim thương mại không dùng, giải phóng bộ nhớ).
+- **Vô hiệu hóa cụm Live TV ăng-ten Xiaomi:** `com.mitv.livetv`, `com.mitv.livetv.it`, `com.mitv.livetv.ci_mediatek` (giải phóng gần 100MB RAM chạy ngầm).
+- Tổng tiến trình hệ thống giảm từ 538 xuống còn **390 tasks**, giải phóng thêm lượng lớn RAM và CPU rảnh rỗi đạt gần 300%.
 
 ---
 
@@ -37,7 +36,7 @@
   ```bash
   ./launcher/update-launcher.sh
   ```
-- Khôi phục khẩn cấp 1 chạm:
+- Khôi phục khẩn cấp 1 chạm (bật lại toàn bộ):
   ```bash
   ./examples/xiaomi-a75pro-river/restore.sh
   ```

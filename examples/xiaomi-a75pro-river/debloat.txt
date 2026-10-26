@@ -1,7 +1,6 @@
-# [Update: 26/10/2026 16:44]
+# [Update: 26/10/2026 19:06]
 # Danh sách debloat tối ưu cho Xiaomi TV A75 Pro (river)
-# Đã loại bỏ tvmanager (được Sếp yêu cầu giữ lại)
-# Đã vô hiệu hóa setupwraith để triệt tiêu lỗi vòng lặp cứu hộ khi đổi launcher
+# Đã bổ sung vô hiệu hóa Amazon Prime Video và cụm Live TV theo chỉ đạo của Sếp
 
 # 1. Xiaomi & Google Telemetry, Tracking & Ad metrics (100% an toàn)
 com.miui.tv.analytics
@@ -29,3 +28,9 @@ com.xiaomi.mitv.updateservice
 # 5. Tắt watchdog và launcher gốc để chuyển hẳn sang Apple TV Launcher
 com.google.android.tungsten.setupwraith
 com.google.android.apps.tv.launcherx
+
+# 6. Các ứng dụng xem phim thương mại và Live TV ăng-ten
+com.amazon.amazonvideo.livingroom
+com.mitv.livetv
+com.mitv.livetv.it
+com.mitv.livetv.ci_mediatek
