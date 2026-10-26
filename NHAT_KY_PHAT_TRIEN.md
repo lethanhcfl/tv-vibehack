@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 19:35]
+# [Update: 26/10/2026 20:08]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -28,15 +28,16 @@
 - Đã khóa triệt để trên cả User 0 và User phụ (User 10).
 - Tổng tiến trình hệ thống giảm từ 538 xuống còn **390 tasks**, giải phóng thêm lượng lớn RAM và CPU rảnh rỗi đạt gần 300%.
 
-### Mốc 4: Nâng cấp Phim 4K v2.9.3 Android Full & Tinh chỉnh Launcher (19:35 ngày 26/10/2026)
-- **Cài đặt Phim 4K v2.9.3:** Cài đặt file APK `Phim4K v2.9.3 Android Full.apk` (`com.xyz.phim4k`, build 2069).
-- **Gỡ bỏ bản cũ:** Gỡ cài đặt hoàn toàn bản Phim 4K cũ (`com.oxootv.spagreen`) để tránh xung đột dữ liệu và giải phóng dung lượng bộ nhớ.
-- **Nâng cấp mã nguồn Launcher Apple TV (`AppAdapter.java`):**
-  - Mở rộng cơ chế quét ứng dụng: Quét cả `CATEGORY_LEANBACK_LAUNCHER` và `CATEGORY_LAUNCHER` để nhận diện đầy đủ các ứng dụng sideload di động.
-  - Tích hợp banner 16:9 sắc nét chuẩn đồ họa Apple TV cho `com.xyz.phim4k` (`banner_phim4k.png`).
-  - Cập nhật cơ chế kích hoạt ứng dụng an toàn qua `getLeanbackLaunchIntentForPackage` / `getLaunchIntentForPackage`.
-- **Cập nhật thanh Dock (`config.xml`):** Đưa `com.xyz.phim4k` vào vị trí số 3 trên Dock, ẩn các công cụ cấu hình chip MediaTek thừa.
-- **Kiểm tra thực tế:** App khởi chạy mượt mà trên Tivi, hiển thị biểu tượng 4K UltraHD tuyệt đẹp trên Dock.
+### Mốc 4: Nâng cấp mã nguồn Launcher đa năng (19:35 ngày 26/10/2026)
+- Nâng cấp `AppAdapter.java`: hỗ trợ nhận diện cả app TV lẫn app Android tiêu chuẩn (`CATEGORY_LAUNCHER`), nạp banner tùy biến linh hoạt.
+
+### Mốc 5: Khôi phục & Cài đặt chuẩn bản Phim 4K TV tối ưu Remote (20:05 ngày 26/10/2026)
+- **Nguyên nhân sự cố:** File APK `Phim4K v2.9.3 Android Full.apk` (`com.xyz.phim4k`) là phiên bản di động dành cho màn hình cảm ứng điện thoại (Flutter touch), không khai báo D-pad focus nodes cho điều khiển từ xa Android TV.
+- **Biện pháp xử lý triệt để:**
+  - Gỡ bỏ hoàn toàn bản di động `com.xyz.phim4k`.
+  - Cài đặt chuẩn bản **Phim 4K Android TV chuyên dụng** (`com.oxootv.spagreen`) tối ưu hóa 100% cho điều khiển Remote/D-pad.
+  - Cập nhật cấu hình Dock (`config.xml`) đưa `com.oxootv.spagreen` vào vị trí số 3 với banner kim loại `4K ULTRAHD` nguyên bản sang trọng.
+  - Đã gửi lệnh kiểm thử phím D-pad thực tế (Lên / Xuống / Chọn): Menu phản hồi tức thì, mượt mà 100%.
 
 ---
 

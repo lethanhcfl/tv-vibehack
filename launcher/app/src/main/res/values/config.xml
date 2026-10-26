@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- [Update: 26/10/2026 19:35] -->
-<!-- Cấu hình 4 ứng dụng yêu thích tại thanh Dock: YouTube, FPT Play, Phim 4K (com.xyz.phim4k), Stremio -->
+<!-- [Update: 26/10/2026 20:05] -->
+<!-- Cấu hình 4 ứng dụng yêu thích tại thanh Dock: YouTube, FPT Play, Phim 4K TV (com.oxootv.spagreen), Stremio -->
 <resources>
 
     <!-- Apps pinned to the dock row at the bottom, in this order. Missing apps are skipped. -->
     <string-array name="dock_apps">
         <item>com.google.android.youtube.tv</item>
         <item>net.fptplay.ottbox</item>
-        <item>com.xyz.phim4k</item>
+        <item>com.oxootv.spagreen</item>
         <item>com.stremio.one</item>
     </string-array>
 
