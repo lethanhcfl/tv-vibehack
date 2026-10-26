@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 16:44]
+# [Update: 26/10/2026 16:52]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -10,28 +10,32 @@
 
 ---
 
-## 2. Giải Pháp Toàn Diện Cho Giao Diện Apple TV & Triệt Tiêu Lỗi Xung Đột
+## 2. Các Mốc Tối Ưu & Tùy Biến Đã Hoàn Thành
 
-### Vấn đề đã xử lý:
-1. Khi tắt `launcherx`, tiến trình giám sát `com.google.android.tungsten.setupwraith` liên tục kích hoạt `RecoveryActivity` tìm kiếm launcher gốc, gây quá tải CPU 100% (Load average 32.5) dẫn tới đơ remote và màn hình đen.
-2. Khi bật lại `launcherx`, tivi lại ưu tiên hiển thị Google TV thay vì Launcher Apple TV.
+### Mốc 1: Tối ưu hóa hệ thống & Dọn dẹp bloatware
+- Vô hiệu hóa an toàn 15 dịch vụ telemetry, quảng cáo PatchWall và cập nhật tự động OTA của Xiaomi.
+- Vô hiệu hóa watchdog `com.google.android.tungsten.setupwraith` để dập tắt triệt để vòng lặp cứu hộ gây nghẽn CPU.
+- Giữ nguyên các tính năng: Google Assistant remote, Chromecast built-in, Mi Cast và Trình quản lý TV (`tvmanager`).
 
-### Giải pháp triệt để:
-1. **Vô hiệu hóa đồng thời watchdog `setupwraith`:**
-   - Chạy `pm disable-user --user 0 com.google.android.tungsten.setupwraith`.
-   - Chạy `pm disable-user --user 0 com.google.android.apps.tv.launcherx`.
-   - Kết quả: Triệt tiêu 100% vòng lặp cứu hộ, CPU lập tức hạ về mức rảnh rỗi **349% / 400%**, hoàn toàn êm ái và không có bất kỳ xung đột nền nào.
-2. **Kích hoạt Launcher Apple TV làm mặc định duy nhất:**
-   - `com.gathin.tvhome/.MainActivity` trở thành Home Launcher duy nhất của hệ thống.
-   - Nhấn phím Home trên điều khiển chuyển hướng tức thì về Apple TV Launcher với 4 app yêu thích ghim ở Dock: **YouTube**, **FPT Play**, **Phim 4K**, **Stremio**.
-3. **Mở lại Trình quản lý TV (Xiaomi TV Manager):**
-   - Đã bật lại `com.xiaomi.mitv.tvmanager` theo yêu cầu của Sếp để theo dõi RAM và bộ nhớ trống.
+### Mốc 2: Cài đặt Launcher chuẩn Apple TV
+- Đã đưa launcher Apple TV làm màn hình chính duy nhất.
+- 4 ứng dụng yêu thích ghim tại thanh Dock: **YouTube**, **FPT Play**, **Phim 4K**, **Stremio**.
+
+### Mốc 3: Cá nhân hóa giao diện (Yêu cầu của Sếp)
+- **Đổi lời chào:** Góc trên bên trái hiển thị dòng chữ thương hiệu cá nhân: **`CHÀO SẾP TCM`**.
+- **Việt hóa giao diện:** Đổi toàn bộ các nút bấm và trạng thái sang Tiếng Việt chuẩn: *Cổng vào*, *Cài đặt*, *Wi-Fi*, *Đã kết nối*, v.v.
+- **Thời gian & ngày tháng:** Hiển thị tự động theo thời gian thực (Ví dụ: `THỨ HAI 26 THÁNG 10`).
 
 ---
 
-## 3. Tình Trạng Thiết Bị Hiện Tại
-- [x] Giao diện chuẩn Apple TV cực kỳ sạch, không quảng cáo, mở là lên ngay.
-- [x] Remote phản hồi cực nhanh, không còn giật lag.
-- [x] Giữ nguyên 100% Google Assistant, Chromecast built-in, Mi Cast và Trình quản lý TV.
-- [x] Khóa cập nhật OTA Xiaomi để tránh bị can thiệp ngoài ý muốn.
-- [x] Script phục hồi khẩn cấp 1 chạm: `examples/xiaomi-a75pro-river/restore.sh`.
+## 3. Hướng Dẫn Sếp Tự Tùy Biến Sau Này
+- Đổi app ở Dock: sửa `launcher/app/src/main/res/values/config.xml`.
+- Đổi lời chào/chữ hiển thị: sửa `launcher/app/src/main/res/values/strings.xml`.
+- Chạy cập nhật 1 chạm:
+  ```bash
+  ./launcher/update-launcher.sh
+  ```
+- Khôi phục khẩn cấp 1 chạm:
+  ```bash
+  ./examples/xiaomi-a75pro-river/restore.sh
+  ```

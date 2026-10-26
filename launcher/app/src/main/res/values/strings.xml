@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- [Update: 26/10/2026 16:51] -->
+<!-- Việt hóa toàn bộ giao diện và đổi lời chào thành Chào Sếp TCM -->
 <resources>
     <string name="app_name">Home</string>
-    <string name="inputs">Inputs</string>
+    <string name="inputs">Cổng vào</string>
     <string name="wifi">Wi-Fi</string>
-    <string name="settings">Settings</string>
-    <string name="choose_input">Inputs</string>
-    <string name="connected">Connected</string>
-    <string name="standby">Standby</string>
-    <string name="not_connected">No device</string>
-    <string name="live_tv">Live TV</string>
-    <string name="no_inputs">No inputs found</string>
-    <string name="good_morning">Good morning</string>
-    <string name="good_afternoon">Good afternoon</string>
-    <string name="good_evening">Good evening</string>
-    <string name="good_night">Good night</string>
-    <string name="ethernet">Ethernet</string>
-    <string name="offline">Offline</string>
-    <string name="not_available">Not available on this TV</string>
-    <string name="cant_open">Can\'t open %1$s</string>
+    <string name="settings">Cài đặt</string>
+    <string name="choose_input">Cổng vào</string>
+    <string name="connected">Đã kết nối</string>
+    <string name="standby">Chờ</string>
+    <string name="not_connected">Không có thiết bị</string>
+    <string name="live_tv">Truyền hình</string>
+    <string name="no_inputs">Không tìm thấy cổng</string>
+    <string name="good_morning">Chào Sếp TCM</string>
+    <string name="good_afternoon">Chào Sếp TCM</string>
+    <string name="good_evening">Chào Sếp TCM</string>
+    <string name="good_night">Chào Sếp TCM</string>
+    <string name="ethernet">Mạng dây</string>
+    <string name="offline">Ngoại tuyến</string>
+    <string name="not_available">Không hỗ trợ trên TV này</string>
+    <string name="cant_open">Không thể mở %1$s</string>
     <string name="date_format">EEEE  d MMMM</string>
-    <string name="dream_name">Clock</string>
+    <string name="dream_name">Đồng hồ</string>
 </resources>
