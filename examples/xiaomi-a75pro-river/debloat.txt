@@ -1,15 +1,15 @@
-# [Update: 26/10/2026 16:15]
-# Danh sách debloat an toàn cho Xiaomi TV A75 Pro (river)
-# Kích hoạt tắt OTA updateservice theo chỉ đạo của Sếp
-# Giữ nguyên Google Assistant, Chromecast và Mi Cast
+# [Update: 26/10/2026 16:44]
+# Danh sách debloat tối ưu cho Xiaomi TV A75 Pro (river)
+# Đã loại bỏ tvmanager (được Sếp yêu cầu giữ lại)
+# Đã vô hiệu hóa setupwraith để triệt tiêu lỗi vòng lặp cứu hộ khi đổi launcher
 
-# 1. Xiaomi & Google Telemetry, Tracking & Ad metrics (100% an toan)
+# 1. Xiaomi & Google Telemetry, Tracking & Ad metrics (100% an toàn)
 com.miui.tv.analytics
 com.xiaomi.statistic
 com.google.android.feedback
 com.android.tv.feedbackconsent
 
-# 2. PatchWall, Xiaomi Ads, Mi Channel & Sponsored Content (100% an toan)
+# 2. PatchWall, Xiaomi Ads, Mi Channel & Sponsored Content (100% an toàn)
 com.mitv.tvhome.atv
 com.mitv.tvhome.michannel
 com.mitv.tvhome.mitvplus
@@ -17,12 +17,15 @@ com.mitv.tvhome.oemtab
 com.xm.webcontent
 com.xiaomi.android.tvsetup.partnercustomizer
 
-# 3. Ung dung rac chay ngam & Trinh don dep ao cua Xiaomi (100% an toan)
-com.xiaomi.mitv.tvmanager
+# 3. Ứng dụng chạy ngầm không cần thiết (100% an toàn)
 com.xiaomi.mitv.scenemode
 com.xiaomi.mimusic2
 com.mitv.gallery
 com.google.android.play.games
 
-# 4. Tat dich vu cap nhat OTA (tranh Xiaomi tu dong cap nhat de lai tinh nang)
+# 4. Tắt cập nhật OTA (tránh Xiaomi tự động cập nhật đè)
 com.xiaomi.mitv.updateservice
+
+# 5. Tắt watchdog và launcher gốc để chuyển hẳn sang Apple TV Launcher
+com.google.android.tungsten.setupwraith
+com.google.android.apps.tv.launcherx

@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 16:39]
+# [Update: 26/10/2026 16:44]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -10,42 +10,28 @@
 
 ---
 
-## 2. Nhật Ký Xử Lý Sự Cố Nghẽn CPU & Phục Hồi An Toàn (26/10/2026)
+## 2. Giải Pháp Toàn Diện Cho Giao Diện Apple TV & Triệt Tiêu Lỗi Xung Đột
 
-### Sự cố phát sinh:
-- Sau khi cài Launcher Apple TV và tắt launcher gốc (`com.google.android.apps.tv.launcherx`), hệ thống xuất hiện tình trạng nhận tín hiệu điều khiển cực kỳ chậm, tivi tự khởi động lại và xuất hiện màn hình đen.
-- **Nguyên nhân cốt lõi (Phát hiện qua ADB Logcat):**
-  - Android 14 trên Xiaomi HyperOS TV có tiến trình giám sát hệ thống là `com.google.android.tungsten.setupwraith` (Setup Wraith).
-  - Khi `launcherx` bị vô hiệu hóa (`disabled-user`), `setupwraith` lập tức kích hoạt cơ chế `RecoveryActivity` khẩn cấp để tự động tìm và khôi phục launcher gốc.
-  - Do `launcherx` không tìm thấy, `setupwraith` rơi vào **vòng lặp vô tận (chạy lại 20 lần/giây)**, khiến `system_server` ngốn 92% CPU, đẩy chỉ số **Load Average lên mức 32.5** (quá tải nghiêm trọng trên chip 4 nhân).
-  - Tải CPU quá cao làm nghẽn tiến trình Bluetooth Remote và kích hoạt cơ chế tự bảo vệ `RescueParty` của Android, gây màn hình đen tạm thời.
+### Vấn đề đã xử lý:
+1. Khi tắt `launcherx`, tiến trình giám sát `com.google.android.tungsten.setupwraith` liên tục kích hoạt `RecoveryActivity` tìm kiếm launcher gốc, gây quá tải CPU 100% (Load average 32.5) dẫn tới đơ remote và màn hình đen.
+2. Khi bật lại `launcherx`, tivi lại ưu tiên hiển thị Google TV thay vì Launcher Apple TV.
 
-### Biện pháp can thiệp & Kết quả:
-1. **Khôi phục ngay lập tức launcherx:**
-   - Kích hoạt lại `com.google.android.apps.tv.launcherx` và đặt làm màn hình chính.
-   - Vòng lặp cứu hộ của `setupwraith` chấm dứt hoàn toàn.
-   - Chỉ số CPU lập tức hạ nhiệt: Tỷ lệ CPU rảnh rỗi (Idle) tăng vọt lên **297% / 400%**, RAM trống tăng lên hơn **244MB**.
-2. **Kích hoạt lại Trình quản lý TV (Xiaomi TV Manager):**
-   - Theo yêu cầu của Sếp, đã kích hoạt lại gói `com.xiaomi.mitv.tvmanager`.
-   - Sếp có thể vào kiểm tra dung lượng RAM, bộ nhớ trống bất cứ lúc nào.
-3. **Màn hình tivi:**
-   - Đã hiển thị trở lại bình thường 100%, remote phản hồi tức thì, không còn giật lag.
+### Giải pháp triệt để:
+1. **Vô hiệu hóa đồng thời watchdog `setupwraith`:**
+   - Chạy `pm disable-user --user 0 com.google.android.tungsten.setupwraith`.
+   - Chạy `pm disable-user --user 0 com.google.android.apps.tv.launcherx`.
+   - Kết quả: Triệt tiêu 100% vòng lặp cứu hộ, CPU lập tức hạ về mức rảnh rỗi **349% / 400%**, hoàn toàn êm ái và không có bất kỳ xung đột nền nào.
+2. **Kích hoạt Launcher Apple TV làm mặc định duy nhất:**
+   - `com.gathin.tvhome/.MainActivity` trở thành Home Launcher duy nhất của hệ thống.
+   - Nhấn phím Home trên điều khiển chuyển hướng tức thì về Apple TV Launcher với 4 app yêu thích ghim ở Dock: **YouTube**, **FPT Play**, **Phim 4K**, **Stremio**.
+3. **Mở lại Trình quản lý TV (Xiaomi TV Manager):**
+   - Đã bật lại `com.xiaomi.mitv.tvmanager` theo yêu cầu của Sếp để theo dõi RAM và bộ nhớ trống.
 
 ---
 
-## 3. Tình Trạng Tối Ưu Hiện Tại Của Tivi
-- **16 gói rác / telemetry / quảng cáo PatchWall / cập nhật OTA:** Đang được vô hiệu hóa an toàn, không còn quảng cáo hay tiến trình theo dõi ngầm.
-- **Các tính năng giữ nguyên 100%:**
-  - `com.google.android.katniss` (Tìm kiếm giọng nói Remote Google Assistant).
-  - `com.google.android.apps.mediashell` (Chromecast built-in).
-  - `com.xiaomi.mitv.smartshare` (Mi Cast chia sẻ không dây).
-  - `com.xiaomi.mitv.tvmanager` (Trình quản lý TV xem RAM / bộ nhớ trống).
-  - `com.google.android.apps.tv.launcherx` (Launcher gốc Google TV hoạt động ổn định, tránh kích hoạt lỗi Watchdog).
-
----
-
-## 4. Hướng Dẫn Sếp Khôi Phục Khẩn Cấp (1-Click)
-Nếu cần khôi phục lại toàn bộ:
-```bash
-./examples/xiaomi-a75pro-river/restore.sh
-```
+## 3. Tình Trạng Thiết Bị Hiện Tại
+- [x] Giao diện chuẩn Apple TV cực kỳ sạch, không quảng cáo, mở là lên ngay.
+- [x] Remote phản hồi cực nhanh, không còn giật lag.
+- [x] Giữ nguyên 100% Google Assistant, Chromecast built-in, Mi Cast và Trình quản lý TV.
+- [x] Khóa cập nhật OTA Xiaomi để tránh bị can thiệp ngoài ý muốn.
+- [x] Script phục hồi khẩn cấp 1 chạm: `examples/xiaomi-a75pro-river/restore.sh`.
