@@ -1,0 +1,28 @@
+# [Update: 26/10/2026 16:15]
+# Danh sách debloat an toàn cho Xiaomi TV A75 Pro (river)
+# Kích hoạt tắt OTA updateservice theo chỉ đạo của Sếp
+# Giữ nguyên Google Assistant, Chromecast và Mi Cast
+
+# 1. Xiaomi & Google Telemetry, Tracking & Ad metrics (100% an toan)
+com.miui.tv.analytics
+com.xiaomi.statistic
+com.google.android.feedback
+com.android.tv.feedbackconsent
+
+# 2. PatchWall, Xiaomi Ads, Mi Channel & Sponsored Content (100% an toan)
+com.mitv.tvhome.atv
+com.mitv.tvhome.michannel
+com.mitv.tvhome.mitvplus
+com.mitv.tvhome.oemtab
+com.xm.webcontent
+com.xiaomi.android.tvsetup.partnercustomizer
+
+# 3. Ung dung rac chay ngam & Trinh don dep ao cua Xiaomi (100% an toan)
+com.xiaomi.mitv.tvmanager
+com.xiaomi.mitv.scenemode
+com.xiaomi.mimusic2
+com.mitv.gallery
+com.google.android.play.games
+
+# 4. Tat dich vu cap nhat OTA (tranh Xiaomi tu dong cap nhat de lai tinh nang)
+com.xiaomi.mitv.updateservice

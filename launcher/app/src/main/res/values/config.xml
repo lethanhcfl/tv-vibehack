@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Launcher configuration. Edit this file, then run launcher/build-and-install.sh.
-  Package names: on the TV run `pm list packages` (tools/tv.py 'pm list packages').
--->
+<!-- [Update: 26/10/2026 16:19] -->
+<!-- Cấu hình 4 ứng dụng yêu thích tại thanh Dock: YouTube, FPT Play, Phim 4K, Stremio -->
 <resources>
 
     <!-- Apps pinned to the dock row at the bottom, in this order. Missing apps are skipped. -->
     <string-array name="dock_apps">
-        <item>com.netflix.ninja</item>
-        <item>com.amazon.amazonvideo.livingroom</item>
         <item>com.google.android.youtube.tv</item>
-        <item>in.startv.hotstar</item>
+        <item>net.fptplay.ottbox</item>
+        <item>com.oxootv.spagreen</item>
+        <item>com.stremio.one</item>
     </string-array>
 
     <!-- Apps never shown as tiles (e.g. the Live TV app, which the Inputs menu already covers). -->

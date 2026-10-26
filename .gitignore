@@ -1,10 +1,15 @@
+# [Update: 26/10/2026 16:23]
+# Bỏ qua các bộ công cụ nhị phân lớn và bản sao lưu cục bộ thiết bị
 tools/venv/
 tools/adbkey/
 tools/__pycache__/
+tools/platform-tools/
+tools/jdk17/
+tools/android-sdk/
 launcher/.gradle/
 launcher/build/
 launcher/app/build/
 launcher/local.properties
-# your own TV's dumps (serial, android_id, device names) stay local
+backups/
 backup/
 .DS_Store
