@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 16:56]
+# [Update: 26/10/2026 16:59]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -23,7 +23,10 @@
 
 ### Mốc 3: Cá nhân hóa giao diện độc quyền cho gia đình Sếp
 - **Lời chào gia đình:** Góc trên bên trái hiển thị đầy đủ: **`CHÀO SẾP TCM, SẾP SEN, SẾP LÊ CÁ`**.
-- **3 nút chức năng tối giản:** Chuyển sang dạng nút tròn kính mờ (kích thước 44dp x 44dp) chuẩn phong cách Apple TV Control Center (*Cổng vào*, *Wi-Fi*, *Cài đặt*).
+- **Căn giữa chuẩn xác 3 nút icon tròn (Apple Control Center):**
+  - Chuyển đổi từ `TextView` sang `ImageView` với `scaleType="center"`.
+  - Khắc phục triệt để hiện tượng icon bị lệch mép do cơ chế canh lề text của TextView.
+  - Các icon bên trong 3 nút tròn (*Cổng vào*, *Wi-Fi*, *Cài đặt*) giờ đây đã được căn giữa tuyệt đối 100% theo cả trục ngang và trục dọc.
 
 ---
 

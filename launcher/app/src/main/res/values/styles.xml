@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- [Update: 26/10/2026 16:53] -->
-<!-- Tinh chỉnh TopButton dạng hình tròn tối giản icon-only chuẩn Apple TV -->
+<!-- [Update: 26/10/2026 16:58] -->
+<!-- Tinh chỉnh TopButton dạng hình tròn tối giản căn giữa tuyệt đối chuẩn Apple TV -->
 <resources>
     <style name="Theme.TvHome" parent="android:Theme.Material.NoActionBar.Fullscreen">
         <item name="android:windowBackground">@android:color/black</item>
@@ -13,10 +13,9 @@
         <item name="android:layout_width">44dp</item>
         <item name="android:layout_height">44dp</item>
         <item name="android:layout_marginStart">10dp</item>
-        <item name="android:gravity">center</item>
         <item name="android:background">@drawable/pill_bg</item>
-        <item name="android:textColor">@drawable/pill_text</item>
-        <item name="android:drawableTint">@drawable/pill_text</item>
+        <item name="android:tint">@drawable/pill_text</item>
+        <item name="android:scaleType">center</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
     </style>

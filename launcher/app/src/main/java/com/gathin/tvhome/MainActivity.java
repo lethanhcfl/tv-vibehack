@@ -1,6 +1,6 @@
 /*
- * [Update: 26/10/2026 16:54]
- * Ẩn nhãn chữ cho các nút trên cùng, chuyển sang dạng icon tròn tối giản chuẩn Apple TV
+ * [Update: 26/10/2026 16:58]
+ * Căn giữa tuyệt đối cho 3 icon trên cùng bằng ImageView
  */
 package com.gathin.tvhome;
 
@@ -70,7 +70,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     private int ambientColor;
     private boolean heroShown;
     private TextView greeting;
-    private TextView btnWifi;
+    private View btnWifi;
     private SpringAnimation springX, springY;
     private float glassTargetX, glassTargetY;
     private boolean glassShown;
@@ -414,7 +414,6 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
             }
         } catch (Exception ignored) {
         }
-        btnWifi.setText("");
         btnWifi.setContentDescription(text);
     }
 
