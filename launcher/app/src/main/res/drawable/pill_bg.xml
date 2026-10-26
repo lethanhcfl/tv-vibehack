@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- [Update: 26/10/2026 16:53] -->
+<!-- Bo tròn 22dp tạo hình tròn hoàn hảo cho icon button 44dp -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true">
         <shape android:shape="rectangle">
             <solid android:color="#F5FFFFFF" />
-            <corners android:radius="21dp" />
+            <corners android:radius="22dp" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <gradient android:angle="270" android:startColor="#2EFFFFFF" android:endColor="#14FFFFFF" />
             <stroke android:width="1dp" android:color="#38FFFFFF" />
-            <corners android:radius="21dp" />
+            <corners android:radius="22dp" />
         </shape>
     </item>
 </selector>

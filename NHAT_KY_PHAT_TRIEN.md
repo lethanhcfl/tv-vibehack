@@ -1,4 +1,4 @@
-# [Update: 26/10/2026 16:52]
+# [Update: 26/10/2026 16:54]
 # NHẬT KÝ PHÁT TRIỂN DỰ ÁN: TỐI ƯU HÓA & CÀI ĐẶT LAUNCHER APPLE TV CHO XIAOMI TV A75 PRO
 
 ## 1. Thông Tin Thiết Bị Mục Tiêu
@@ -21,16 +21,14 @@
 - Đã đưa launcher Apple TV làm màn hình chính duy nhất.
 - 4 ứng dụng yêu thích ghim tại thanh Dock: **YouTube**, **FPT Play**, **Phim 4K**, **Stremio**.
 
-### Mốc 3: Cá nhân hóa giao diện (Yêu cầu của Sếp)
-- **Đổi lời chào:** Góc trên bên trái hiển thị dòng chữ thương hiệu cá nhân: **`CHÀO SẾP TCM`**.
-- **Việt hóa giao diện:** Đổi toàn bộ các nút bấm và trạng thái sang Tiếng Việt chuẩn: *Cổng vào*, *Cài đặt*, *Wi-Fi*, *Đã kết nối*, v.v.
-- **Thời gian & ngày tháng:** Hiển thị tự động theo thời gian thực (Ví dụ: `THỨ HAI 26 THÁNG 10`).
+### Mốc 3: Cá nhân hóa giao diện (Theo chỉ đạo của Sếp)
+- **Lời chào cá nhân hóa:** Góc trên bên trái hiển thị dòng chữ: **`CHÀO SẾP TCM`**.
+- **Chuyển nút sang dạng Icon tròn tối giản:** 3 nút chức năng góc trên bên phải (*Cổng vào*, *Wi-Fi*, *Cài đặt*) đã được ẩn hoàn toàn phần chữ, chuyển thành các nút tròn kính mờ (frosted circular glass icons 44dp x 44dp) chuẩn phong cách Apple TV Control Center.
 
 ---
 
-## 3. Hướng Dẫn Sếp Tự Tùy Biến Sau Này
+## 3. Hướng Dẫn Tùy Biến & Khôi Phục Cho Sếp
 - Đổi app ở Dock: sửa `launcher/app/src/main/res/values/config.xml`.
-- Đổi lời chào/chữ hiển thị: sửa `launcher/app/src/main/res/values/strings.xml`.
 - Chạy cập nhật 1 chạm:
   ```bash
   ./launcher/update-launcher.sh

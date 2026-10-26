@@ -131,21 +131,21 @@
                 <TextView
                     android:id="@+id/btnInputs"
                     style="@style/TopButton"
-                    android:text="@string/inputs"
+                    android:contentDescription="@string/inputs"
                     android:drawableStart="@drawable/ic_input"
                     android:nextFocusDown="@+id/grid" />
 
                 <TextView
                     android:id="@+id/btnWifi"
                     style="@style/TopButton"
-                    android:text="@string/wifi"
+                    android:contentDescription="@string/wifi"
                     android:drawableStart="@drawable/ic_wifi"
                     android:nextFocusDown="@+id/grid" />
 
                 <TextView
                     android:id="@+id/btnSettings"
                     style="@style/TopButton"
-                    android:text="@string/settings"
+                    android:contentDescription="@string/settings"
                     android:drawableStart="@drawable/ic_settings"
                     android:nextFocusDown="@+id/grid" />
             </LinearLayout>

@@ -1,3 +1,7 @@
+/*
+ * [Update: 26/10/2026 16:54]
+ * Ẩn nhãn chữ cho các nút trên cùng, chuyển sang dạng icon tròn tối giản chuẩn Apple TV
+ */
 package com.gathin.tvhome;
 
 import android.app.Activity;
@@ -410,7 +414,8 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
             }
         } catch (Exception ignored) {
         }
-        btnWifi.setText(text);
+        btnWifi.setText("");
+        btnWifi.setContentDescription(text);
     }
 
     private void open(Intent i) {
