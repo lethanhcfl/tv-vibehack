@@ -26,3 +26,16 @@ You have persistent long-term memory via the agentmemory MCP server. Tools: `mem
 - When you learn something durable (a decision, a fix, a gotcha, a user preference, a project convention), call `memory_save` to persist it.
 - Prefer recalling over re-deriving, and save concise reusable facts rather than transcripts.
 <!-- agentmemory:end -->
+
+
+<!-- checkpoint:start -->
+## Cơ Chế Chốt Mốc "Ngon" & Time-Machine Checkpoints (BẮT BUỘC TUÂN THỦ)
+
+- **Tín hiệu kích hoạt từ Sếp:** Bất cứ khi nào Sếp phản hồi bằng các từ khóa: **"ngon"**, **"ngon rồi"**, **"ổn rồi"**, **"chốt"**, **"chốt mốc"**, **"ưng rồi"**, **"release được"**:
+- **Hành động bắt buộc của AI:**
+  1. **Trích xuất ngữ cảnh:** Ghi nhận chính xác mốc thời gian `YYYY-MM-DD HH:mm:ss`, tính năng vừa hoàn thành, và danh sách các file đang chạy ổn định.
+  2. **Đóng dấu Git Tag:** Tạo Git Tag dạng `checkpoint/YYYYMMDD_HHmm_<slug_tinh_nang>`.
+  3. **Cập nhật Sổ tay:** Thêm dòng mới vào bảng tra cứu `SO_TAY_KIEM_SOAT_PHIEN_BAN.md` tại thư mục gốc của dự án.
+  4. **Lưu AgentMemory:** Gọi công cụ `memory_save` lưu lại mốc checkpoint này vào bộ nhớ dài hạn.
+  5. **Báo cáo Sếp:** Báo cáo ngắn gọn mã tag vừa chốt kèm câu lệnh phục hồi chọn lọc từng file khi cần (`git checkout <tag> -- path/to/file`).
+<!-- checkpoint:end -->

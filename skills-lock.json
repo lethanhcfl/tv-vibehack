@@ -36,6 +36,18 @@
       "sourceType": "github",
       "skillPath": "plugin/skills/remember/SKILL.md",
       "computedHash": "7b1d56d038198539dbea85210ef5949a3f3822404cd3abb37524f3e424d80d50"
+    },
+    "checkpoint-guardian": {
+      "source": "tcm-evo/skills",
+      "sourceType": "project",
+      "skillPath": ".agents/skills/checkpoint-guardian/SKILL.md",
+      "computedHash": "checkpoint-guardian-v1"
+    },
+    "vibe-uiux-master": {
+      "source": "tcm-evo/skills",
+      "sourceType": "project",
+      "skillPath": ".agents/skills/vibe-uiux-master/SKILL.md",
+      "computedHash": "vibe-uiux-master-v1"
     }
   }
 }

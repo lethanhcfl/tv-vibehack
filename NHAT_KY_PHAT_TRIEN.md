@@ -106,3 +106,11 @@
 - **Xóa bỏ (11 skills):** agentmemory-agents, agentmemory-architecture, agentmemory-config, agentmemory-hooks, agentmemory-mcp-tools, agentmemory-rest-api, commit-context, commit-history, recap, session-history, write-agentmemory-skill.
 - **Giữ lại (6 skills tinh hoa):** remember, recall, lesson, memory-discipline, forget, handoff.
 
+
+
+## [04/11/2026 12:15] - Tích hợp Hệ thống Time-Machine Checkpoints & Skill Vibe UI/UX
+- **Giải quyết điểm đau:** Khắc phục triệt để lỗi ghi đè mất code cũ, mất dấu thời điểm chạy ngon khi phát hiện bug, và nguy cơ mất tính năng mới khi rollback.
+- **Cơ chế kích hoạt:** Bắt từ khóa "ngon / ổn rồi / chốt" từ Sếp để tự động gắn Git Tag kèm ngữ cảnh và thời gian.
+- **Cung cấp Sổ tay phiên bản:** `SO_TAY_KIEM_SOAT_PHIEN_BAN.md` tra cứu 1-click phục hồi chọn lọc từng file (`git checkout <tag> -- <file>`).
+- **Bổ sung 2 skills thực chiến:** `checkpoint-guardian` (bảo vệ mốc) và `vibe-uiux-master` (Vibe coding chuẩn PDCA & chống AI Slop).
+
