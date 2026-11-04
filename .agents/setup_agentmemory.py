@@ -109,13 +109,25 @@ def run():
         json.dump(mcp_data, f, indent=2, ensure_ascii=False)
     print(f"  [✓] Đã ghi nhận MCP server 'agentmemory' vào: {mcp_config_path}")
 
-    # Sao chép 17 skills vào ~/.gemini/config/skills
+# Sao chép và tinh gọn skills vào ~/.gemini/config/skills (chỉ giữ 6 core skills)
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    local_skills = os.path.join(script_dir, "skills")
+    local_skills = os.path.join(script_dir, 'skills')
+    surplus_to_remove = [
+        'agentmemory-agents', 'agentmemory-architecture', 'agentmemory-config',
+        'agentmemory-hooks', 'agentmemory-mcp-tools', 'agentmemory-rest-api',
+        'commit-context', 'commit-history', 'recap', 'session-history', 'write-agentmemory-skill'
+    ]
+    for s in surplus_to_remove:
+        old_p = os.path.join(skills_dir, s)
+        if os.path.exists(old_p):
+            try:
+                shutil.rmtree(old_p)
+            except Exception:
+                pass
     if os.path.exists(local_skills):
-        print(f"[4] Sao chép 17 skills sang thư mục toàn cục: {skills_dir}")
+        print(f'[4] Đồng bộ 6 kỹ năng cốt lõi sang thư mục toàn cục: {skills_dir}')
         shutil.copytree(local_skills, skills_dir, dirs_exist_ok=True)
-        print("  [✓] Đã sao chép 100% 17 kỹ năng bộ nhớ vĩnh viễn vào hệ thống.")
+        print('  [✓] Đã sao chép 6 kỹ năng bộ nhớ tinh hoa vào hệ sinh thái.')
 
     # Cập nhật quy chuẩn GEMINI.md toàn cục
     mem_rule = """
